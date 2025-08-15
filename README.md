@@ -33,7 +33,7 @@ ________________________________________
 4)	Verify → Automated test by accessing the updated app
 ________________________________________
 ## Deployment Steps
----
+
 ## Set up Development Instance
 1)	Launch Amazon Linux EC2
 2)	Install Maven, Java, Git
@@ -42,7 +42,6 @@ ________________________________________
 <img width="625" height="327" alt="image" src="https://github.com/user-attachments/assets/ce8a653c-1c8c-46a7-aebc-62015439379c" />
 <img width="619" height="296" alt="image" src="https://github.com/user-attachments/assets/10cbe5af-d5e8-4a60-9b0d-52ce7baba1af" />
 <img width="694" height="258" alt="image" src="https://github.com/user-attachments/assets/36e0eb49-3443-4afb-8796-236676cc8d52" />
-
 
 
 ## Configure CodeArtifact
@@ -111,7 +110,7 @@ In the Deploy provider dropdown, select AWS CodeDeploy.
 2)	Verify automatic redeployment to production
    <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/e237222e-ca36-410c-8304-ad69779020e3" />
    <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/382f32bf-2d89-48d3-86ba-1bcb4300568a" />
----
+
 
 ## 🎯 Key Learning Outcomes
 
