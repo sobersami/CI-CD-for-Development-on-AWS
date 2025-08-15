@@ -49,24 +49,78 @@ ________________________________________
 <img width="462" height="267" alt="image" src="https://github.com/user-attachments/assets/25542acd-8e63-4b02-981c-e2bc7317cea8" />
 
 1)	Create a Maven repo in CodeArtifact
-2)	Link EC2 & CodeBuild to it via IAM policies with the Json 
+2)	Link EC2 & CodeBuild to it via IAM policies(JSON) 
 <img width="648" height="561" alt="image" src="https://github.com/user-attachments/assets/f670b608-4671-4a59-be75-b9d813e23a15" />
 
 ## Build Automation (CodeBuild)
 1)	Create an S3 bucket for build artifacts
+   <img width="487" height="281" alt="image" src="https://github.com/user-attachments/assets/18cc5ba5-029c-4fe5-8144-42169c66b07b" />
+    <img width="852" height="572" alt="image" src="https://github.com/user-attachments/assets/cb85f428-a22c-4b3c-90ae-322b04b88a6c" />
+
 2)	Create a CodeBuild project linked to GitHub
+<img width="650" height="287" alt="image" src="https://github.com/user-attachments/assets/972c22c7-9ede-48d3-a672-ec474a3370b7" />
+
 ## Deployment Automation (CodeDeploy)
 <img width="975" height="269" alt="image" src="https://github.com/user-attachments/assets/9f083cfb-bccd-4836-96f4-db63af05e3b3" />
 
 1)	Launch EC2 target via CloudFormation
+   <img width="502" height="347" alt="image" src="https://github.com/user-attachments/assets/e7c65293-b0dd-402b-92c2-e8d85f387dcb" />
+   <img width="602" height="331" alt="image" src="https://github.com/user-attachments/assets/75511ca8-69c5-4aed-b857-a5b9a7b05906" />
 2)	Create CodeDeploy app & deployment group
+   
 ## Orchestrate CI/CD (CodePipeline)
 1)	Source → Build → Deploy stages
+   <img width="517" height="398" alt="image" src="https://github.com/user-attachments/assets/94160769-4339-431b-b77b-f2d407a04ac9" />
+    <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/014a8800-0b89-42cf-b557-0dd9980f362a" />
+
 2)	Execution mode: Superseded (auto-cancels old runs)
+   <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/8e5811cf-c716-4b43-9605-6b99290efd8d" />
+   <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/d099e53d-f5c9-40ec-a13c-cf9391c47230" />
+
+## Configuring the Source, Build, and Deploy Stages
+  1) Under Connection, select your existing GitHub connection
+<img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/1cc328ca-0951-4f01-afa1-e14ff9a4b877" />
+<img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/51f53c28-c5ca-4f03-8902-bdc4992323d6" />
+  2) Make sure that Webhook events is checked under Detect change events.
+<img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/069038eb-8d4d-4352-a776-47d6ebc0d19d" />
+  3) Select AWS CodeBuild from Other build providers in the Build provider dropdown.
+     In the Build stage, your source code gets compiled and packaged into something that can be deployed.
+     <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/dcebb9ec-8b13-4bbb-aa41-1cfcb844f6bc" />
+  4) Under Input artifacts, SourceArtifact should be selected by default.
+     Input artifacts are the outputs from the previous stage that are used as inputs for the current stage. In our Build stage, we're using 
+     <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/d0c770d6-ccd5-4a2c-8d9f-fab3b322ab56" />
+  5) In the Deploy provider dropdown, select AWS CodeDeploy.
+     The Deploy stage is the final step in our pipeline. It's responsible for taking the application artifacts (the output from the Build stage) and deploying them to the target environment, which in our case is an EC2 instance.
+In the Deploy provider dropdown, select AWS CodeDeploy.
+  6) Check the box for Configure automatic rollback on stage failure.
+<img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/4d617c9d-05ae-40e9-9d96-044128afac5a" />
+
+
+
+
+
+
+
 ## Test Automation
+
 1)	Commit a small change
+   <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/5c8b3c4d-eeba-49b5-a428-0bf812952735" />
+   <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/57615ca9-207a-4673-8361-ace568b3cc95" />
+
+
 2)	Verify automatic redeployment to production
+   <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/e237222e-ca36-410c-8304-ad69779020e3" />
+   <img width="2304" height="1464" alt="image" src="https://github.com/user-attachments/assets/382f32bf-2d89-48d3-86ba-1bcb4300568a" />
 ---
+
+## 🎯 Key Learning Outcomes
+
+- Hands-on experience with AWS DevOps services
+
+- Understanding of pipeline automation and infrastructure as code
+
+- Skills to troubleshoot and monitor deployments
+
 
 
 
