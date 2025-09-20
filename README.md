@@ -18,14 +18,7 @@ ________________________________________
 2)	Build Tool: Maven
 3)	AWS Services: EC2, CodePipeline, CodeBuild, CodeDeploy, CodeArtifact, S3, IAM
 4)	Tools: GitHub, VS Code, SSH
-________________________________________
-## 📂 Project Structure
-├── src/                  # Application source code
-├── buildspec.yml          # CodeBuild build instructions
-├── appspec.yml            # CodeDeploy deployment instructions
-├── templates/             # CloudFormation templates
-└── README.md              # Project documentation
-________________________________________
+
 ## ⚡ Pipeline Flow
 1)	Source → Fetches code from GitHub (webhook-enabled)
 2)	Build → Compiles & packages app with CodeBuild (Maven + dependencies from CodeArtifact)
